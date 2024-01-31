@@ -22,4 +22,14 @@ function printHelp() {
     `)
 }
 
-export { printError, prindSuccess, printHelp }
+function printWeather(res, icon) {
+    console.log(dedent`
+        ${chalk.cyanBright.bold(' Weather ')} Weather in the city ${res.name}:
+        ${icon} ${res.weather[0].description}
+        Temperature: ${res.main.temp} (feels like ${res.main.feels_like})
+        Humidity: ${res.main.humidity}%
+        Wind speed: ${res.wind.speed}
+    `)
+}
+
+export { printError, prindSuccess, printHelp, printWeather }
